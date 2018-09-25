@@ -1,0 +1,76 @@
+<toaster-container></toaster-container>
+
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="well-block">
+        <div class="well-title">
+          <h2>Book an Appointment</h2>
+        </div>
+        <form>
+          <!-- Form start -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label" for="name">Name</label>
+                <input id="name" name="name"  [(ngModel)]="name" type="text" placeholder="Name" class="form-control inlineheight input-md">
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label" for="email">Email</label>
+                <input id="email" name="email"  [(ngModel)]="email" type="text" placeholder="E-Mail" class="form-control inlineheight input-md">
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label" for="date">Preferred Date</label>
+                <input id="date" name="date" type="text" placeholder="Preferred Date" class="form-control inlineheight input-md">
+              </div>
+            </div>
+            <!-- Select Basic -->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label" for="time">Preferred Time</label>
+                <select id="time" name="time" class="form-control inlineheight">
+                  <option value="" disabled>Select time</option>
+                  <option value="{{i}}" *ngFor="let i of timearray">{{i}}</option>
+                </select>
+              </div>
+            </div>
+            <!-- Select Basic -->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label" for="appointmentfor">Dr Available</label>
+                <select id="doctorname" name="appointmentfor" class="form-control inlineheight" >
+                  <option value="">Select Doctors</option>
+                  <option  *ngFor="let dr of doctors; let i = index" value="{{dr._id}}">{{dr?.firstname}}</option>
+                
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label" for="appointmentfor">Appointment For</label>
+                <select id="appointmentfor" name="appointmentfor" class="form-control inlineheight" >
+                  <option value="">Select Checkup Types</option>
+                  <option *ngFor="let type of checkupTypes; let i= index;" value="{{type}}">{{type}}</option>
+                </select>
+              </div>
+            </div>
+            <!-- Button -->
+            <div class="col-md-12">
+              <div class="form-group">
+                <button id="singlebutton" name="singlebutton" class="btn btn-success btn-default"(click)="makeAppointment()" >Make An Appointment</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- form end -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<toaster-container></toaster-container>
+<app-header></app-header>
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+                <th scope="col">SNo.</th>
+            <th scope="col">Dr Name</th>
+            
+            <th scope="col">Creation Date</th>
+            <th scope="col">Appointment Date</th>
+            <th scope="col">Dr email</th>
+            <th scope="col">Appointment Time</th>
+            <th scope="col">Appointment For</th>
+            <th scope="col">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let app of appointments; let i = index;">
+            <td>{{i+1}}</td>
+            <td>{{app?.drId?.firstname}}</td>
+            <td>{{app?.created_on | date}}</td>
+            <td>@{{app?.appointmentDate | date}}</td>
+            <td>{{app?.drId?.email}}</td>
+            <td>{{app?.appointTime}}</td>
+            <td>@{{app?.AppointMentFor}}</td>
+            <td><a type="btn btn-danger btnd" (click)="deleteApp(app._id)" >Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
